@@ -1,0 +1,20 @@
+server:
+  port: 8086
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+zuul:
+  routes:
+    helloworld:
+      path: /hw/**
+    hello:
+      path: /hello/**
+    world:
+      path: /world/**
+    helloworldfeign:
+      path: /hwf/**
